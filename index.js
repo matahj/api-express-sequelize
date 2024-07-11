@@ -5,10 +5,10 @@ const { Sequelize, DataTypes, json } = require("sequelize");
 
 const sequelize = new Sequelize({
     dialect: "mysql",
-    host: "localhost",
-    username: "root",
-    password: "root",
-    database: "boletosDB"
+    host: process.env.MYSQL_HOST,
+    username: process.env.MYSQL_USERNAME,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DB
 });
 
 async function connect() {
@@ -129,7 +129,7 @@ async function sync(){
     }
 }
 
-//sync();
+sync();
 ////////////////////////////////////////////////
 
 const express = require("express");
